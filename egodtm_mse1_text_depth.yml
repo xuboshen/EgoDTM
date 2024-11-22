@@ -1,0 +1,53 @@
+OUTPUT_DIR: "test_results/egoslm_mse1_wo_shortcut"
+CKPT_DIR: "checkpoint_depth.pt"
+# CKPT_DIR: "pretrained/checkpoint_0000.pt"
+RESUME: ""
+PRE_EVAL: False
+EVAL_FREQ: 1
+# CKPT_DIR: "pretrained/he"
+LOSS:
+  NAME: "VideoTextMask"
+TASK:
+  TASK_NAME: ["VTC", "DepthEstim"]
+DATASET:
+  TRAIN:
+    FUSED_DECODE_CROP: False
+    DATASET_NAME: "VideoCaptionDepthEgo4D_AVION"
+    ANNO_PATH: "annotations/EgoDTM/ego4d_fully_enriched.pkl"
+    DATA_PATH: "data/ego4d/down_scale_288p_15sec"
+    CHUNK_LEN: 15
+    DEPTH_PATH: "code/STAR-HOI/outputs/depth"
+  VAL:
+    DATASET_NAMES: ["egomcq", "ek100mir"]
+    ANNO_PATH: ["data/ego4d/egomcq.json", "data/EK100_320p_15sec_30fps_libx264/epic-kitchens-100-annotations/EPIC_100_retrieval_test.csv"]
+    DATA_PATH: ["data/ego4d/down_scale_288p_15sec", "data/EK100_320p_15sec_30fps_libx264"]
+    EK100MIR: 
+      RELEVANCY_PATH: data/EK100_320p_15sec_30fps_libx264/epic-kitchens-100-annotations/caption_relevancy_EPIC_100_retrieval_test.pkl
+      METADATA: data/EK100_320p_15sec_30fps_libx264/epic-kitchens-100-annotations/EPIC_100_retrieval_test.csv
+    FUSED_DECODE_CROP: [True, True]
+    CHUNK_LEN: [15, 15]
+MODEL:
+  USE_CAP: False # change
+  MODEL_NAME: hoi
+  BACKBONE: avion
+  AVION:
+    RETURN_FEAT: True
+  MASK2FORMER:
+    DEC_TYPE: w_pixel_d # typical decoder with depth estimation
+    USE_FLASH_ATTN: True
+
+INPUT:
+  NUM_FRAMES: 4
+  
+SOLVER:
+  MAX_EPOCHS: 10
+  BASE_LR: 3e-5
+  WEIGHT_DECAY: 0.0001
+  BATCH_SIZE: 256
+  MIXED_PRECISION: fp16
+
+DATALOADER:
+  NUM_WORKERS: 16
+
+TEST:
+  BATCH_SIZE: 128

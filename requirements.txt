@@ -1,0 +1,11 @@
+timm
+decord
+einops
+pandas
+transformers
+ftfy
+scikit-learn
+yacs
+peft
+accelerate
+flash-attn==0.2.8
