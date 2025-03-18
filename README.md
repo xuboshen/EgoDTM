@@ -1,5 +1,5 @@
 <h1 align="center">
-  Learning 3D-Aware Representation for Egocentric Video-Language Models
+  EgoDTM: Towards 3D-Aware Egocentric Video-Language Pretraining
 </h1>
 
 
@@ -7,20 +7,21 @@
 <a target="_blank"><img src="assets/paper/method.png" alt="method" style="width: 80%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
-We introduce EgoDTM, an **Ego**centric **D**epth- and **T**ext-aware video-language **M**odel, trained through multimodal pretraining. 
+We introduce EgoDTM, an **Ego**centric **D**epth- and **T**ext-aware video-language **M**odel. 
 
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Installation](#installation)
-- [Datasets](#datasets)
+- [Data Generation](#data-generation)
 - [Training](#training)
-- [Models](#models)
+- [Visualization](#visualization)
 
 
 ## Overview
-- We introduce EgoDTM, a pretraining framework integrating both depth and text to create a 3D-aware egocentric video-language model.
-- We develop an automated pipeline for generating multimodal data at scale for egocentric videos, including text, HOI bounding boxes, spatial-temporal consistent HOI masks, and depth maps.
-- Extensive experimental results show that EgoDTM significantly enhances performance on video understanding tasks, robot manipulation tasks in simulated environments, and presents great generalization to estimate depths in unseen environments. 
+- We introduce EgoDTM, a 3D-aware egocentric video-language model learned from 3D-aware video-language pretraining 
+- We develop a lightweight 3D-aware decoder for depth estimation and a ata construction pipeline to enrich captions with spatial information. As a byprouct, we generate millions of egocentric ata, including captions, HOI boxes, HOI masks, and depth maps.
+- Extensive experimental results show that EgoDTM significantly enhances performance on video understanding tasks and 3D understanding tasks.
 
 ## Installation
 
