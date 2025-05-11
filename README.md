@@ -1,3 +1,5 @@
+⚠️ I will reorganize this repository and release all code, data, and downstream benchmark evaluations between late May and June. Please stay tuned!
+
 <h1 align="center">
   EgoDTM: Towards 3D-Aware Egocentric Video-Language Pretraining
 </h1>
