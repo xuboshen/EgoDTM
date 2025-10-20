@@ -1,4 +1,4 @@
-⚠️ I will reorganize this repository and release all code, data, and downstream benchmark evaluations between late May and June. Please stay tuned!
+⚠️ I will reorganize this repository and release all code, data, and downstream benchmark evaluations after the CVPR DDL, around November 30. Please stay tuned! qaq
 
 <h1 align="center">
   EgoDTM: Towards 3D-Aware Egocentric Video-Language Pretraining
